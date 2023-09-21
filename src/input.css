@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .products {
+        height: auto;
+        transition: all .6s ease-in;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+    }
+
+    .wrapper {
+        @apply grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem; 
+    }
+
+    .card {
+        position: relative;
+    }
+    .card .heading {
+        @apply w-full;
+        @apply flex;
+        @apply justify-between;
+        @apply absolute;
+        @apply top-0;
+        @apply left-0;
+        @apply p-2;
+        z-index: 2;
+        overflow-x: hidden;
+    }
+
+    .card .img-section {
+        @apply mb-5;
+        @apply  relative;
+        overflow-y: hidden;
+        @apply rounded-md;
+    }
+
+    .card .img-section .imgs {
+        width: 200%;
+        transition: all .3s ease-in-out;
+        overflow-y: hidden;
+
+    }
+
+    .card .img-section .imgs:hover {
+        transform: translateX(-50%);
+    }
+    
+    .card .img-section img {
+        @apply h-auto;
+        transition: src .3s ease-in-out;
+        width: 50%;
+        float: left;
+    }
+
+   
+
+    .card .heading .badge {
+        border: 1px solid black; 
+        text-align: center;
+        background-color: #fff;
+        font-size: 8px;
+        @apply rounded-3xl;
+        padding: 3px 7px;
+    }
+
+    .card .heading .badge.success {
+        @apply bg-green-banner;
+        color: #fff;
+        margin-right: 10px;
+    }
+
+    .card .info-section .product-name{
+        @apply mb-2.5;
+        @apply font-oswald;
+        font-weight: 500;
+        display: block;
+    }
+
+    .card .info-section .product-rating {
+        @apply mb-2.5;
+    }
+
+    .card .info-section .product-rating .stars {
+        @apply inline-block;
+        @apply text-sm;
+    }
+    .card .info-section .product-rating .review-count {
+        @apply text-sm;
+        @apply text-gray-400;
+    }
+
+    
+
+    @media screen and (min-width: 1024px) {
+        .wrapper {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem; 
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+        .wrapper { 
+            width: 290%;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 2rem; 
+        }
+    }
+
+}
